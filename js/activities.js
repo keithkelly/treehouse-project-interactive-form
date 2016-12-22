@@ -19,7 +19,7 @@ var totalCost = 0;
  * Create the total cost container and append it to the activities fieldset
  */
 var addTotalCost = function() {
-	var activitiesContainer = document.querySelector('.activities');
+	var activitiesContainer = document.getElementById('activities');
 	var createTotalCostContainer = document.createElement('div');
 
 	createTotalCostContainer.id = 'total-cost';
@@ -124,6 +124,8 @@ for(var i = 0; i < registrationCheckboxes.length; i++) {
 	registrationCheckboxes[i].addEventListener('change', function() {
 		var eventString = this.parentElement.innerText;
 		var totalCostContainer = document.getElementById('total-cost');
+		var activitiesContainer = document.getElementById('activities');
+		var activitiesError = document.getElementById('activities-error');
 
 		eventStatusToggle(this.checked, eventString);
 
@@ -133,6 +135,11 @@ for(var i = 0; i < registrationCheckboxes.length; i++) {
 			updateTotalCost();
 		} else {
 			totalCostContainer.innerText = '';
+		}
+
+		if(this.checked && activitiesError) {
+			activitiesContainer.classList.remove('error');
+			activitiesError.remove();
 		}
 	});
 }

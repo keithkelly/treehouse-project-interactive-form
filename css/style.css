@@ -113,6 +113,27 @@ button:hover {
 	background: #184c62;
 }
 
+.error {
+	color: #a94442;
+}
+
+.error legend {
+	color: #184f68;
+}
+
+p.error {
+	background-color: #f2dede;
+	border: 1px solid #a94442;
+	border-radius: 3px;
+	margin: 0 0 0.5rem;
+	padding: 0.5rem 1rem;
+}
+
+input.error {
+	background-color: #f2dede;
+	border-color: #a94442;
+}
+
 /* ================================= 
   Page Styles
 ==================================== */

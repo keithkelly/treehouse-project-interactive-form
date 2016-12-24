@@ -56,14 +56,14 @@
 	 * @returns {boolean}
 	 */
 	var checkCreditNumbers = function(fieldId) {
-		var inputValue = parseInt(document.getElementById(fieldId).value, 10);
-		var inputCount = document.getElementById(fieldId).value.length;
+		var inputValue = document.getElementById(fieldId).value;
+		var ccNumPattern = /^[0-9]{13,16}$/;
+		var zipCodePattern = /^[0-9]{5}$/;
+		var cvvPattern = /^[0-9]{3}$/;
 
-		if(!isNaN(inputValue)) {
-			if(fieldId === 'cc-num') { return inputCount >= 13 && inputCount <= 16; }
-			if(fieldId === 'zip') { return inputCount === 5; }
-			if(fieldId === 'cvv') { return inputCount === 3; }
-		}
+		if(fieldId === 'cc-num') { return ccNumPattern.test(inputValue); }
+		if(fieldId === 'zip') { return zipCodePattern.test(inputValue); }
+		if(fieldId === 'cvv') { return cvvPattern.test(inputValue); }
 	};
 
 	/** Adds or remove error message to the fields label */
